@@ -11,7 +11,7 @@ resource "aws_instance" "EC2PublicSubnet" {
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
 
   # The public SSH key
-  key_name = aws_key_pair.mykeypair.key_name
+  key_name = aws_key_pair.publicEC2KeyPair.key_name
 }
 
 # Create an EC2 Instance in private subnet
@@ -26,7 +26,7 @@ resource "aws_instance" "EC2PrivateSubnet" {
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
 
   # The public SSH key
-  key_name = aws_key_pair.mykeypair.key_name
+  key_name = aws_key_pair.privateEC2KeyPair.key_name
 }
 
 
