@@ -1,3 +1,5 @@
+# This files contains the variables declaration and initialization that are required to build the infrastructure
+
 variable "AWS_ACCESS_KEY" {
     type = string
 }

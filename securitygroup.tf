@@ -1,3 +1,4 @@
+# Create security group for EC2 instances. Only allow ingress SSH access for all IP addresses.
 resource "aws_security_group" "allow-ssh" {
   vpc_id      = aws_vpc.main.id
   name        = "allow-ssh"

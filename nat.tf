@@ -1,15 +1,15 @@
-# nat gw
+# Create Elastic IP for NAT Gateway
 resource "aws_eip" "nat" {
   vpc = true
 }
-
+# Create NAT Gateway in public subnet with a static IP address, connects with the Internet Gateway of the VPC
 resource "aws_nat_gateway" "nat-gw" {
   allocation_id = aws_eip.nat.id
   subnet_id     = aws_subnet.main-public-1.id
   depends_on    = [aws_internet_gateway.main-gw]
 }
 
-# VPC setup for NAT
+# Create a Route Table for the NAT Gateway in the private subnet
 resource "aws_route_table" "main-private" {
   vpc_id = aws_vpc.main.id
   route {
@@ -22,7 +22,7 @@ resource "aws_route_table" "main-private" {
   }
 }
 
-# route associations private subnet
+# Create Route Table Associations for private subnet
 resource "aws_route_table_association" "main-private-1-a" {
   subnet_id      = aws_subnet.main-private-1.id
   route_table_id = aws_route_table.main-private.id
