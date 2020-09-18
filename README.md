@@ -64,4 +64,4 @@ You can access your EC2 Instance in the private subnet by following this [blog](
 
 Below is the architecture that I have drawn by using the `graphviz` library:
 
-![Week 7 Architecture](graph.svg)
+![Week 7 Architecture](graph_picture.png)
